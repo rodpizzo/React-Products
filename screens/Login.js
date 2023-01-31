@@ -2,7 +2,7 @@ import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import React from "react";
 import LoginCard from "../components/LoginCard";
 
-export default function login() {
+export default function LoginFunction({ navigation }) {
   return (
     <View
       style={{
@@ -13,7 +13,7 @@ export default function login() {
         width: "1100%",
       }}
     >
-      <LoginCard />
+      <LoginCard navigation={navigation} />
     </View>
   );
 }

@@ -1,7 +1,7 @@
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import React from "react";
 
-export default function LoginCard() {
+export default function LoginCard({ navigation }) {
   return (
     <View
       style={{
@@ -53,6 +53,7 @@ export default function LoginCard() {
           alignSelf: "center",
           paddingVertical: 10,
         }}
+        onPress={() => navigation.navigate("Products")}
       >
         <Text>Entrar</Text>
       </TouchableOpacity>
