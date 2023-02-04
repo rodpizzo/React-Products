@@ -1,7 +1,27 @@
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+import { CommonActions } from "@react-navigation/native";
 
 export default function LoginCard({ navigation }) {
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  async function logar() {
+    try {
+      const response = await axios.post(
+        "https://api-ecommerce-eta.vercel.app/signin",
+        { email: email, password: senha }
+      );
+      navigation.dispatch(
+        CommonActions.reset({
+          index: 1,
+          routes: [{ name: "Products" }],
+        })
+      );
+    } catch (error) {
+      alert("email ou senha errada!");
+    }
+  }
   return (
     <View
       style={{
@@ -18,6 +38,8 @@ export default function LoginCard({ navigation }) {
         Informe seus dados corretamente para acessar o sistema.
       </Text>
       <TextInput
+        onChangeText={(txt) => setEmail(txt)}
+        value={email}
         placeholder="Digite seu email"
         style={{
           backgroundColor: "#F5F5F5",
@@ -32,6 +54,9 @@ export default function LoginCard({ navigation }) {
         }}
       ></TextInput>
       <TextInput
+        onChangeText={(txt) => setSenha(txt)}
+        value={senha}
+        secureTextEntry={true}
         placeholder="Digite sua senha"
         style={{
           backgroundColor: "#F5F5F5",
@@ -53,7 +78,8 @@ export default function LoginCard({ navigation }) {
           alignSelf: "center",
           paddingVertical: 10,
         }}
-        onPress={() => navigation.navigate("Products")}
+        /*onPress={() => navigation.navigate("Products")}*/
+        onPress={logar}
       >
         <Text>Entrar</Text>
       </TouchableOpacity>
