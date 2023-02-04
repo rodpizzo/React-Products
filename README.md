@@ -2,8 +2,6 @@
 
 Esse é um projeto de aplicativo de e-commerce que permite aos usuários fazer login e acessar produtos, utilizando a biblioteca React Native para construir a interface do usuário e a API para lidar com as solicitações de login e produtos.
 
-
-![primeira parte](https://user-images.githubusercontent.com/109025291/216767098-84744c3d-5a46-4cdd-81c8-e4553aea87c8.gif)
 ![segunda parte](https://user-images.githubusercontent.com/109025291/216767102-3b9858ba-c013-48da-943e-944556072c1d.gif)
 
 ## 🚀 Começando
